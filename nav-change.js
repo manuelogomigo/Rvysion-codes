@@ -4,10 +4,10 @@ $(".section.dark").each(function (index) {
     start: "top 10%",
     end: "bottom 10%",
     onEnter: () => {
-      $(".nav-link, .logo, .button, .svg-arrow, .menu-button, .menu-line").addClass("light");
+      $(".nav-link, .logo, .button, .svg-arrow").addClass("light");
     },
     onEnterBack: () => {
-      $(".nav-link, .logo, .button, .svg-arrow, .menu-button, .menu-line").addClass("light");
+      $(".nav-link, .logo, .button, .svg-arrow").addClass("light");
     }
   });
 });
@@ -18,10 +18,10 @@ $(".section.light").each(function (index) {
     start: "top 10%",
     end: "bottom 10%",
     onEnter: () => {
-      $(".nav-link, .logo, .button, .svg-arrow, .menu-button, .menu-line").removeClass("light");
+      $(".nav-link, .logo, .button, .svg-arrow").removeClass("light");
     },
     onEnterBack: () => {
-      $(".nav-link, .logo, .button, .svg-arrow, .menu-button, .menu-line").removeClass("light");
+      $(".nav-link, .logo, .button, .svg-arrow").removeClass("light");
     }
   });
 });
