@@ -1,51 +1,44 @@
 "use strict"; // fix lenis in safari
 
 if (Webflow.env("editor") === undefined) {
-  let lenis = null;
+  const lenis = new Lenis({
+    lerp: 0.1,
+    wheelMultiplier: 0.7,
+    infinite: false,
+    gestureOrientation: "vertical",
+    normalizeWheel: false,
+    smoothTouch: false
+  });
 
-  function initializeLenis() {
-    lenis = new Lenis({
-      lerp: 0.1,
-      wheelMultiplier: 0.7,
-      infinite: false,
-      gestureOrientation: "vertical",
-      normalizeWheel: false,
-      smoothTouch: false
-    });
-
-    function raf(time) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
-
+  function raf(time) {
+    lenis.raf(time);
     requestAnimationFrame(raf);
   }
+  requestAnimationFrame(raf);
 
-  function startLenis() {
-    if (lenis === null) {
-      initializeLenis();
-    }
+  $("[data-lenis-start]").on("click", function () {
     lenis.start();
-    $("body").removeClass("stop-scroll"); // Remove the "stop-scroll" class
-  }
-
-  function stopLenis() {
-    if (lenis === null) {
-      initializeLenis();
-    }
+  });
+  $("[data-lenis-stop]").on("click", function () {
     lenis.stop();
-    $("body").addClass("stop-scroll"); // Add the "stop-scroll" class
-  }
-
-  function toggleLenis() {
-    if (lenis === null) {
-      initializeLenis();
+  });
+  $("[data-lenis-toggle]").on("click", function () {
+    $(this).toggleClass("stop-scroll");
+    if ($(this).hasClass("stop-scroll")) {
+      lenis.stop();
+    } else {
+      lenis.start();
     }
-    lenis.toggle();
-    $("body").toggleClass("stop-scroll"); // Toggle the "stop-scroll" class
-  }
+  });
 
-  $("[data-lenis-start]").on("click", startLenis);
-  $("[data-lenis-stop]").on("click", stopLenis);
-  $("[data-lenis-toggle]").on("click", toggleLenis);
+  //function connectToScrollTrigger() {
+    //lenis.on("scroll", ScrollTrigger.update);
+    //gsap.ticker.add((time) => {
+    //  lenis.raf(time * 1000);
+    //});
+    //}
+  // Uncomment this if using GSAP ScrollTrigger
+  // connectToScrollTrigger();
 }
+
+
