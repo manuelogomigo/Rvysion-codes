@@ -18,16 +18,20 @@ if (Webflow.env("editor") === undefined) {
 
   $("[data-lenis-start]").on("click", function () {
     lenis.start();
+    $("body").removeClass("stop-scroll"); // Add this line to remove the "stop-scroll" class
   });
   $("[data-lenis-stop]").on("click", function () {
     lenis.stop();
+    $("body").addClass("stop-scroll"); // Add this line to add the "stop-scroll" class
   });
   $("[data-lenis-toggle]").on("click", function () {
     $(this).toggleClass("stop-scroll");
     if ($(this).hasClass("stop-scroll")) {
       lenis.stop();
+      $("body").addClass("stop-scroll"); // Add this line to add the "stop-scroll" class
     } else {
       lenis.start();
+      $("body").removeClass("stop-scroll"); // Add this line to remove the "stop-scroll" class
     }
   });
 
@@ -36,9 +40,7 @@ if (Webflow.env("editor") === undefined) {
     gsap.ticker.add((time) => {
       lenis.raf(time * 1000);
     });
-    }
+  }
   // Uncomment this if using GSAP ScrollTrigger
   connectToScrollTrigger();
 }
-
-
