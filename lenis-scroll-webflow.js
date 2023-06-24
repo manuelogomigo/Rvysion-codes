@@ -31,14 +31,14 @@ if (Webflow.env("editor") === undefined) {
     }
   });
 
-  //function connectToScrollTrigger() {
-    //lenis.on("scroll", ScrollTrigger.update);
-    //gsap.ticker.add((time) => {
-    //  lenis.raf(time * 1000);
-    //});
-    //}
+  function connectToScrollTrigger() {
+    lenis.on("scroll", ScrollTrigger.update);
+    gsap.ticker.add((time) => {
+      lenis.raf(time * 1000);
+    });
+    }
   // Uncomment this if using GSAP ScrollTrigger
-  // connectToScrollTrigger();
+  connectToScrollTrigger();
 }
 
 
