@@ -5,13 +5,13 @@ $(".section.dark").each(function (index) {
     end: "bottom 10%",
     onEnter: () => {
       $(".nav-link, .button, .svg-arrow").addClass("light");
-      $(".logo.is-1").css("visibility", "visible");
-      $(".logo.is-2").css("visibility", "hidden");
+      $(".logo.is-1").show();
+      $(".logo.is-2").hide();
     },
     onEnterBack: () => {
       $(".nav-link, .button, .svg-arrow").addClass("light");
-      $(".logo.is-1").css("visibility", "visible");
-      $(".logo.is-2").css("visibility", "hidden");
+      $(".logo.is-1").show();
+      $(".logo.is-2").hide();
     }
   });
 });
@@ -23,13 +23,13 @@ $(".section.light").each(function (index) {
     end: "bottom 10%",
     onEnter: () => {
       $(".nav-link, .button, .svg-arrow").removeClass("light");
-      $(".logo.is-2").css("visibility", "visible");
-      $(".logo.is-1").css("visibility", "hidden");
+      $(".logo.is-2").show();
+      $(".logo.is-1").hide();
     },
     onEnterBack: () => {
       $(".nav-link, .button, .svg-arrow").removeClass("light");
-      $(".logo.is-2").css("visibility", "visible");
-      $(".logo.is-1").css("visibility", "hidden");
+      $(".logo.is-2").show();
+      $(".logo.is-1").hide();
     }
   });
 });
