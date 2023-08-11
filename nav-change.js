@@ -1,35 +1,35 @@
 $(".section.dark").each(function (index) {
   ScrollTrigger.create({
-    trigger: $(this),
+    trigger: this,
     start: "top 10%",
     end: "bottom 10%",
     onEnter: () => {
       $(".nav-link, .button, .svg-arrow").addClass("light");
-      $(".logo.is-1").show();
-      $(".logo.is-2").hide();
+      $(".logo.is-1").css("display", "block");
+      $(".logo.is-2").css("display", "none");
     },
     onEnterBack: () => {
       $(".nav-link, .button, .svg-arrow").addClass("light");
-      $(".logo.is-1").show();
-      $(".logo.is-2").hide();
+      $(".logo.is-1").css("display", "block");
+      $(".logo.is-2").css("display", "none");
     }
   });
 });
 
 $(".section.light").each(function (index) {
   ScrollTrigger.create({
-    trigger: $(this),
+    trigger: this,
     start: "top 10%",
     end: "bottom 10%",
     onEnter: () => {
       $(".nav-link, .button, .svg-arrow").removeClass("light");
-      $(".logo.is-2").show();
-      $(".logo.is-1").hide();
+      $(".logo.is-2").css("display", "block");
+      $(".logo.is-1").css("display", "none");
     },
     onEnterBack: () => {
       $(".nav-link, .button, .svg-arrow").removeClass("light");
-      $(".logo.is-2").show();
-      $(".logo.is-1").hide();
+      $(".logo.is-2").css("display", "block");
+      $(".logo.is-1").css("display", "none");
     }
   });
 });
