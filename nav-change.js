@@ -48,6 +48,7 @@ $(".section.light").each(function (index) {
 
 // Function to change the logo image
 function changeLogoImage(isLight) {
+  console.log("changeLogoImage called with isLight:", isLight);
   var $logo = $(".logo"); // Assuming you have the logo element as a jQuery object
   if (isLight) {
     $logo.attr("src", "https://uploads-ssl.webflow.com/64457c55e38bb781a90b3770/64d658084b05b3c0a45205ae_Rvysion%20Logo%20(2).svg");
